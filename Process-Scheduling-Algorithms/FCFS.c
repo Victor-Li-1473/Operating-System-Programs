@@ -84,3 +84,24 @@ int sort(fcfs arr[], int n)
     }
     return 0;
 }
+
+void reverse(){
+	// Initialize current, previous and
+	// next pointers
+	struct node *current = head;
+	struct node *prev = NULL; 
+	struct node *next = NULL;
+
+	while (current != NULL) {
+	    // Store next
+	    next = current->next;
+
+	    // Reverse current node's pointer
+	    current->next = prev;
+        
+	    // Move pointers one position ahead.
+	    prev = current;
+	    current = next;
+	}
+	head = prev;
+}
